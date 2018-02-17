@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body onload="init();">
+        <div id='card' >
+            <div id='wrapper' >
+                <div id='header' >
+                    <div class='duration' id='cast' >
+                    </div>
+                    <div id='name'>
+                    </div>
+                    <div class='duration' id='cooldown'>
+                   
+                    </div>
+                </div>
+                <div id='image' >
+                </div>
+                <div id='bottom' >
+                    <div id='ability' >
+                    </div>
+                    <div id='class' >
+                    </div>
+                    <div id='edition' >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <! Divs for buttons and value fields>
+        <div id="inputfields">
+            <div class="positionContainer marginBottom25">
+                <div class="positionFloatleft strengthBlock">
+                    <div class="label">Cooldown</div>
+                             <input type="text" name="Cooldown" id="inputCooldown" value="5" onchange="getTextfields('inputCooldown')">
+                    </div>
+            <div class="positionFloatleft nameBlock">
+                <div class="label">Name</div>
+                    <input type="text" name="cardName" id="inputName" placeholder="Card name" onchange="getTextfields('inputName')">
+                </div>
+            </div>
+
+       </div>
+
+
+    </body>
+</html>
