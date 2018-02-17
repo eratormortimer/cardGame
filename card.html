@@ -39,7 +39,15 @@
                     <input type="text" name="cardName" id="inputName" placeholder="Card name" onchange="getTextfields('inputName')">
                 </div>
             </div>
-
+            <div class="dropdown" id="inputRarity">
+                <button onclick="openDropdown('dropdownRarity')" class="dropbtn">Rarity: Common</button>
+                <div id="dropdownRarity" class="dropdown-content">
+                    <a href="#" onclick="changeRarity('Common')" >Common</a>
+                    <a href="#" onclick="changeRarity('Rare')" >Rare</a>
+                    <a href="#" onclick="changeRarity('UltraRare')" >UltraRare</a>
+                    <a href="#" onclick="changeRarity('Legendary')" >Legendary</a>
+                </div>
+            </div>
        </div>
 
 
