@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body onload='init();'>
+        <div id='formwrapper'>
+            <div id='viewswitch'>
+                <button type='button' onclick='switch_view()'>
+                    Switch Form
+                </button>
+            </div>
+            <div id='jsonform' class='form'>
+                <button type='button' onclick='parse_card();'>
+                    Parse
+                </button>
+                <!-- do not change the indentation in the textarea -->
+                <textarea class='form' id='jsoninput'>
+{
+"name" : "Example Name",
+"cast" : 0,
+"cooldown" : 0,
+"class_" : "all",
+"edition" : "basic",
+"image" : "No Image",
+"ability" : "Super Hero Power"
+}
+                </textarea>
+            </div>
+            <div id='cardcreator' class='form'>
+                Card Creator
+            </div>
+        </div>
+        <div id='card' >
+            <div id='wrapper' >
+                <div id='header' >
+                    <div class='duration' id='cast' >
+                    </div>
+                    <div id='name'>
+                    </div>
+                    <div class='duration' id='cooldown'>
+                   
+                    </div>
+                </div>
+                <div id='image' >
+                </div>
+                <div id='bottom' >
+                    <div id='ability' >
+                    </div>
+                    <div id='class' >
+                    </div>
+                    <div id='edition' >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

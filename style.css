@@ -1,0 +1,87 @@
+div {
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.duration {
+    height: 100%;
+    width: 10%;
+}
+
+#formwrapper {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.fullsize {
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    width: 100%;
+    height: 90%;
+}
+
+#json {
+    width: 100%;
+    height: 80%;
+}
+
+#card {
+    width: 200px;
+    height: 300px;
+    padding: 15px;
+    float: left;
+    margin: 50px;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    height: 10%;
+    width: 100%;
+}
+
+#name {
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+#cast {
+    float: left;
+}
+
+#cooldown {
+    float: right;
+}
+
+#image {
+    height: 40%;
+}
+
+#bottom {
+    height: 50%;
+    width: 100%;
+}
+
+#ability {
+    height: 80%;
+}
+
+#class {
+    height: 20%;
+    width: 10%;
+    float: left;
+}
+
+#edition {
+    height: 20%;
+    width: 90%;
+    float: right;
+}
