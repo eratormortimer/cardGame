@@ -3,7 +3,69 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="script.js"></script>
     </head>
-    <body onload="init();">
+    <body onload='init();'>
+        <div id='formwrapper'>
+            <div id='viewswitch'>
+                <button type='button' onclick='switch_view()'>
+                    Switch Form
+                </button>
+            </div>
+            <div id='jsonform' class='form'>
+                <button type='button' onclick='parse_card();'>
+                    Parse
+                </button>
+                <!-- do not change the indentation in the textarea -->
+                <textarea class='form' id='jsoninput'>
+{
+"name" : "Example Name",
+"cast" : 0,
+"cooldown" : 0,
+"class_" : "all",
+"edition" : "basic",
+"image" : "No Image",
+"ability" : "Super Hero Power"
+}
+                </textarea>
+            </div>
+            <div id='cardcreator' class='form'>
+                <p>Name</p>
+                <input type='text' onchange='update_card();'
+                    id='nameform'>
+
+                <p>Cast Duration</p>
+                <input type='text' onchange='update_card();'
+                    id='castform'>
+
+                <p>Cooldown Duration</p>
+                <input type='text' onchange='update_card();'
+                    id='cooldownform'>
+
+                <p>Ability</p>
+                <input type='text' onchange='update_card();'
+                    id='abilityform'>
+
+                <p>Image</p>
+                <input type='text' onchange='update_card();'
+                    id='imageform'>
+
+                <p>Class</p>
+                <input type='text' onchange='update_card();'
+                    id='classform'>
+
+                <p>Edition</p>
+                <input type='text' onchange='update_card();'
+                    id='editionform'>
+
+                <p>Level</p>
+                <select id='levelform'>
+                    <option value='1'>Common</option>
+                    <option value='2'>Rare</option>
+                    <option value='3'>UltraRare</option>
+                    <option value='4'>Legendary</option>
+                </select>
+
+            </div>
+        </div>
         <div id='card' >
             <div id='wrapper' >
                 <div id='header' >
@@ -27,29 +89,5 @@
                 </div>
             </div>
         </div>
-        <! Divs for buttons and value fields>
-        <div id="inputfields">
-            <div class="positionContainer marginBottom25">
-                <div class="positionFloatleft strengthBlock">
-                    <div class="label">Cooldown</div>
-                             <input type="text" name="Cooldown" id="inputCooldown" value="5" onchange="getTextfields('inputCooldown')">
-                    </div>
-            <div class="positionFloatleft nameBlock">
-                <div class="label">Name</div>
-                    <input type="text" name="cardName" id="inputName" placeholder="Card name" onchange="getTextfields('inputName')">
-                </div>
-            </div>
-            <div class="dropdown" id="inputRarity">
-                <button onclick="openDropdown('dropdownRarity')" class="dropbtn">Rarity: Common</button>
-                <div id="dropdownRarity" class="dropdown-content">
-                    <a href="#" onclick="changeRarity('Common')" >Common</a>
-                    <a href="#" onclick="changeRarity('Rare')" >Rare</a>
-                    <a href="#" onclick="changeRarity('UltraRare')" >UltraRare</a>
-                    <a href="#" onclick="changeRarity('Legendary')" >Legendary</a>
-                </div>
-            </div>
-       </div>
-
-
     </body>
 </html>

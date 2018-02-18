@@ -1,64 +1,32 @@
-let textfields = new Map([
-    ['inputCooldown', 'cooldown'], 
-    ['inputName', 'name']
-]);
-
-
 function init() {
-
-	getTextfields('inputCooldown');
-	getTextfields('inputName');
-	changeRarity("Common");
-
+    document.getElementById('jsonform').style.display = 'none';
 }
 
+function show_card (card) {
+    document.getElementById('name').innerHTML = card.name;
+    document.getElementById('cast').innerHTML = card.cast;
+    document.getElementById('cooldown').innerHTML = card.cooldown;
+    document.getElementById('ability').innerHTML = card.ability;
+    document.getElementById('class').innerHTML = card.class_;
+    document.getElementById('edition').innerHTML = card.edition;
+    document.getElementById('image').innerHTML = card.image;
 
-function getTextfields(inputID){
-
-	fieldID= textfields.get(inputID);
-	console.log(fieldID);
-
-
-//document.getElementById(inputID).addEventListener("onchange", function() {
-	setField(fieldID, document.getElementById(inputID).value);
-//});
-
-}
-
-function setField(fieldID, input) {
-	console.log("setField with "+ input);
-	document.getElementById(fieldID).innerHTML = input;
-
-}
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function openDropdown(id) {
-    document.getElementById(id).classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+    wrapper = document.getElementById('card');
+    switch (card.level) {
+        case '1':
+            wrapper.style.background = 'blue';
+            break;
+        case '2':
+            wrapper.style.background = 'red';
+            break;
+        case '3':
+            wrapper.style.background = 'green';
+            break;
     }
-  }
 }
 
-function changeRarity(rarity) {
+function loadFrame(rarity) {
 
-	//delete old rarity image
-	var oldR = document.getElementsByClassName("rarity");
-	if (oldR.length>0) {
-		oldR[0].parentNode.removeChild(oldR[0]); //always only one
-    }
-	//Background image/color of the card to indicate rarity
 	var img = document.createElement("img");
 	img.src = "images/rarity-" + rarity + ".png";
 	img.id = "rarity-" + rarity;
@@ -68,4 +36,51 @@ function changeRarity(rarity) {
 	rarityDiv.appendChild(img);
 }
 
+function export_card (card) {
+    var json = JSON.stringify(card);
+    return json;
+}
 
+function import_card (json) {
+    var card = JSON.parse(json);
+    return card;
+}
+
+function parse_card() {
+    var json = document.getElementById('jsoninput').value;
+    card = import_card (json);
+    show_card (card);
+}
+
+function switch_view() {
+    jsonform = document.getElementById('jsonform');
+    cardcreator = document.getElementById('cardcreator');
+
+    // only one of the forms might be visible at the same time
+    if (jsonform.style.display == 'none') {
+        jsonform.style.display = 'block';
+        cardcreator.style.display = 'none';
+    } else {
+        jsonform.style.display = 'none';
+        cardcreator.style.display = 'block';
+    }
+}
+
+function card_from_form(){
+    var card = {
+        name : document.getElementById('nameform').value,
+        cast : document.getElementById('castform').value,
+        cooldown : document.getElementById('cooldownform').value,
+        image : document.getElementById('imageform').value,
+        ability : document.getElementById('abilityform').value,
+        class_ : document.getElementById('classform').value,
+        edition : document.getElementById('editionform').value,
+        level : document.getElementById('levelform').value
+    };
+    return card;
+}
+
+function update_card(){
+    var card = card_from_form();
+    show_card(card);
+}

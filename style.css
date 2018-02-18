@@ -8,10 +8,34 @@ div {
     width: 10%;
 }
 
+#formwrapper {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.fullsize {
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+}
+
+#json {
+    width: 100%;
+    height: 80%;
+}
+
 #card {
     width: 200px;
     height: 300px;
     padding: 15px;
+    float: left;
+    margin: 50px;
 }
 
 #wrapper {
@@ -19,13 +43,15 @@ div {
     height: 100%;
 }
 
-.rarity {
-    /*What to do here I wonder. Can you get it to look good Alex? */
-}
-
 #header {
     height: 10%;
     width: 100%;
+}
+
+#name {
+    width: 80%;
+    height: 100%;
+    float: left;
 }
 
 #cast {
@@ -60,48 +86,3 @@ div {
     width: 90%;
     float: right;
 }
-
-/* Dropdown Button */
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
