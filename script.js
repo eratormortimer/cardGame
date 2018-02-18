@@ -18,6 +18,7 @@ function getTextfields(inputID){
 	fieldID= textfields.get(inputID);
 	console.log(fieldID);
 
+
 //document.getElementById(inputID).addEventListener("onchange", function() {
 	setField(fieldID, document.getElementById(inputID).value);
 //});
