@@ -28,7 +28,41 @@
                 </textarea>
             </div>
             <div id='cardcreator' class='form'>
-                Card Creator
+                <p>Name</p>
+                <input type='text' onchange='update_card();'
+                    id='nameform'>
+
+                <p>Cast Duration</p>
+                <input type='text' onchange='update_card();'
+                    id='castform'>
+
+                <p>Cooldown Duration</p>
+                <input type='text' onchange='update_card();'
+                    id='cooldownform'>
+
+                <p>Ability</p>
+                <input type='text' onchange='update_card();'
+                    id='abilityform'>
+
+                <p>Image</p>
+                <input type='text' onchange='update_card();'
+                    id='imageform'>
+
+                <p>Class</p>
+                <input type='text' onchange='update_card();'
+                    id='classform'>
+
+                <p>Edition</p>
+                <input type='text' onchange='update_card();'
+                    id='editionform'>
+
+                <p>Level</p>
+                <select id='levelform'>
+                    <option value='1'>Level 1</option>
+                    <option value='2'>Level 2</option>
+                    <option value='3'>Level 3</option>
+                </select>
+
             </div>
         </div>
         <div id='card' >

@@ -10,6 +10,19 @@ function show_card (card) {
     document.getElementById('class').innerHTML = card.class_;
     document.getElementById('edition').innerHTML = card.edition;
     document.getElementById('image').innerHTML = card.image;
+
+    wrapper = document.getElementById('card');
+    switch (card.level) {
+        case '1':
+            wrapper.style.background = 'blue';
+            break;
+        case '2':
+            wrapper.style.background = 'red';
+            break;
+        case '3':
+            wrapper.style.background = 'green';
+            break;
+    }
 }
 
 function export_card (card) {
@@ -40,4 +53,23 @@ function switch_view() {
         jsonform.style.display = 'none';
         cardcreator.style.display = 'block';
     }
+}
+
+function card_from_form(){
+    var card = {
+        name : document.getElementById('nameform').value,
+        cast : document.getElementById('castform').value,
+        cooldown : document.getElementById('cooldownform').value,
+        image : document.getElementById('imageform').value,
+        ability : document.getElementById('abilityform').value,
+        class_ : document.getElementById('classform').value,
+        edition : document.getElementById('editionform').value,
+        level : document.getElementById('levelform').value
+    };
+    return card;
+}
+
+function update_card(){
+    var card = card_from_form();
+    show_card(card);
 }
