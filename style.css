@@ -86,3 +86,10 @@ div {
     width: 90%;
     float: right;
 }
+
+.rarity {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    margin: -260px 0 0 -121px; 
+}

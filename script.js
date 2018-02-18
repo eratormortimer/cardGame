@@ -1,5 +1,6 @@
 function init() {
     document.getElementById('jsonform').style.display = 'none';
+    loadFrame("Common");
 }
 
 function show_card (card) {
@@ -14,22 +15,27 @@ function show_card (card) {
     wrapper = document.getElementById('card');
     switch (card.level) {
         case '1':
-            wrapper.style.background = 'blue';
+            loadframe("Common");
             break;
         case '2':
-            wrapper.style.background = 'red';
+            loadFrame("Rare");
             break;
         case '3':
-            wrapper.style.background = 'green';
+            loadFrame("UltraRare");
+            break;
+        case '4':
+            loadFrame("Legendary");
             break;
     }
 }
 
 function loadFrame(rarity) {
-
+    console.log('trying to load frame')
 	var img = document.createElement("img");
 	img.src = "images/rarity-" + rarity + ".png";
-	img.id = "rarity-" + rarity;
+	//img.src ="images/transparent.png";
+    //img.style["background-image"] = "url('images/rarity-" + rarity + ".png')";
+    img.id = "rarity-" + rarity;
 	img.classList.add("rarity"); 
 
 	var rarityDiv = document.getElementById("wrapper");
