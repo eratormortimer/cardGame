@@ -8,6 +8,7 @@ function init() {
 
 	getTextfields('inputCooldown');
 	getTextfields('inputName');
+	changeRarity("Common");
 
 }
 
