@@ -31,15 +31,21 @@ function show_card (card) {
 
 function loadFrame(rarity) {
     console.log('trying to load frame')
+    /*
 	var img = document.createElement("img");
 	img.src = "images/rarity-" + rarity + ".png";
 	//img.src ="images/transparent.png";
     //img.style["background-image"] = "url('images/rarity-" + rarity + ".png')";
     img.id = "rarity-" + rarity;
-	img.classList.add("rarity"); 
+	//img.classList.add("rarity"); 
 
 	var rarityDiv = document.getElementById("wrapper");
 	rarityDiv.appendChild(img);
+    */
+
+	var img_src = "images/rarity-" + rarity + ".png";
+    document.getElementById('card').style.backgroundImage =
+        "url(" + img_src + ")";
 }
 
 function export_card (card) {
@@ -94,7 +100,7 @@ function update_cardcreator() {
     document.getElementById('levelform').value = card.level;
 }
 
-function card_from_form(){
+function card_from_form() {
     var card = {
         name : document.getElementById('nameform').value,
         cast : document.getElementById('castform').value,
@@ -108,7 +114,7 @@ function card_from_form(){
     return card;
 }
 
-function update_card(){
+function update_card() {
     var card = card_from_form();
     show_card(card);
 }
