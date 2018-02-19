@@ -15,7 +15,7 @@ function show_card (card) {
     wrapper = document.getElementById('card');
     switch (card.level) {
         case '1':
-            loadframe("Common");
+            loadFrame("Common");
             break;
         case '2':
             loadFrame("Rare");
@@ -66,10 +66,32 @@ function switch_view() {
     if (jsonform.style.display == 'none') {
         jsonform.style.display = 'block';
         cardcreator.style.display = 'none';
+        update_json_form();
     } else {
         jsonform.style.display = 'none';
         cardcreator.style.display = 'block';
+        update_cardcreator();
     }
+}
+
+function update_json_form() {
+    var card = card_from_form();
+    var json = export_card(card);
+    document.getElementById('jsoninput').value = json;
+}
+
+function update_cardcreator() {
+    var json = document.getElementById('jsoninput').value;
+    var card = import_card(json);
+
+    document.getElementById('nameform').value = card.name;
+    document.getElementById('castform').value = card.cast;
+    document.getElementById('cooldownform').value = card.cooldown;
+    document.getElementById('imageform').value = card.image;
+    document.getElementById('abilityform').value = card.ability;
+    document.getElementById('classform').value = card.class_;
+    document.getElementById('editionform').value = card.edition;
+    document.getElementById('levelform').value = card.level;
 }
 
 function card_from_form(){
