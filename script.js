@@ -1,5 +1,6 @@
 function init() {
     document.getElementById('jsonform').style.display = 'none';
+    loadFrame("Common");
 }
 
 function show_card (card) {
@@ -10,6 +11,35 @@ function show_card (card) {
     document.getElementById('class').innerHTML = card.class_;
     document.getElementById('edition').innerHTML = card.edition;
     document.getElementById('image').innerHTML = card.image;
+
+    wrapper = document.getElementById('card');
+    switch (card.level) {
+        case '1':
+            loadframe("Common");
+            break;
+        case '2':
+            loadFrame("Rare");
+            break;
+        case '3':
+            loadFrame("UltraRare");
+            break;
+        case '4':
+            loadFrame("Legendary");
+            break;
+    }
+}
+
+function loadFrame(rarity) {
+    console.log('trying to load frame')
+	var img = document.createElement("img");
+	img.src = "images/rarity-" + rarity + ".png";
+	//img.src ="images/transparent.png";
+    //img.style["background-image"] = "url('images/rarity-" + rarity + ".png')";
+    img.id = "rarity-" + rarity;
+	img.classList.add("rarity"); 
+
+	var rarityDiv = document.getElementById("wrapper");
+	rarityDiv.appendChild(img);
 }
 
 function export_card (card) {
@@ -40,4 +70,23 @@ function switch_view() {
         jsonform.style.display = 'none';
         cardcreator.style.display = 'block';
     }
+}
+
+function card_from_form(){
+    var card = {
+        name : document.getElementById('nameform').value,
+        cast : document.getElementById('castform').value,
+        cooldown : document.getElementById('cooldownform').value,
+        image : document.getElementById('imageform').value,
+        ability : document.getElementById('abilityform').value,
+        class_ : document.getElementById('classform').value,
+        edition : document.getElementById('editionform').value,
+        level : document.getElementById('levelform').value
+    };
+    return card;
+}
+
+function update_card(){
+    var card = card_from_form();
+    show_card(card);
 }
