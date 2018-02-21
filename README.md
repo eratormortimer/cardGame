@@ -1,4 +1,4 @@
-# cardGame
+# CardGame Prototype
 
 
 
