@@ -1,25 +1,17 @@
 function init() {
-    document.getElementById('jsonform').style.display = 'none';
+    $('#jsonform').css('display','none');
     loadFrame("Common");
 }
 
 function show_card (card) {
-    document.getElementById('name').innerHTML =
-        '<p>' + card.name + '</p>';
-    document.getElementById('cast').innerHTML =
-        '<p>' + card.cast + '</p>';
-    document.getElementById('cooldown').innerHTML =
-        '<p>' + card.cooldown + '</p>';
-    document.getElementById('ability').innerHTML =
-        '<p>' + card.ability + '</p>';
-    document.getElementById('class').innerHTML =
-        '<p>' + card.class_ + '</p>';
-    document.getElementById('edition').innerHTML =
-        '<p>' + card.edition + '</p>';
-    document.getElementById('image').innerHTML =
-        '<p>' + card.image + '</p>';
+    $('#name').html('<p>' + card.name + '</p>');
+    $('#cast').html('<p>' + card.cast + '</p>');
+    $('#cooldown').html('<p>' + card.cooldown + '</p>');
+    $('#ability').html('<p>' + card.ability + '</p>');
+    $('#class').html('<p>' + card.class_ + '</p>');
+    $('#edition').html('<p>' + card.edition + '</p>');
+    $('#image').html('<p>' + card.image + '</p>');
 
-    wrapper = document.getElementById('card');
     switch (card.level) {
         case '1':
             loadFrame("Common");
@@ -51,8 +43,7 @@ function loadFrame(rarity) {
     */
 
 	var img_src = "../images/rarity-" + rarity + ".png";
-    document.getElementById('card').style.backgroundImage =
-        "url(" + img_src + ")";
+    $('#card').css('background-image',"url(" + img_src + ")");
 }
 
 function export_card (card) {
@@ -66,23 +57,23 @@ function import_card (json) {
 }
 
 function parse_card() {
-    var json = document.getElementById('jsoninput').value;
+    var json = $('#jsoninput').val();
     card = import_card (json);
     show_card (card);
 }
 
 function switch_view() {
-    jsonform = document.getElementById('jsonform');
-    cardcreator = document.getElementById('cardcreator');
+    jsonform = $('#jsonform');
+    cardcreator = $('#cardcreator');
 
     // only one of the forms might be visible at the same time
-    if (jsonform.style.display == 'none') {
-        jsonform.style.display = 'block';
-        cardcreator.style.display = 'none';
+    if (jsonform.css('display') == 'none') {
+        jsonform.css('display', 'block');
+        cardcreator.css('display', 'none');
         update_json_form();
     } else {
-        jsonform.style.display = 'none';
-        cardcreator.style.display = 'block';
+        jsonform.css('display', 'none');
+        cardcreator.css('display', 'block');
         update_cardcreator();
     }
 }
@@ -90,33 +81,33 @@ function switch_view() {
 function update_json_form() {
     var card = card_from_form();
     var json = export_card(card);
-    document.getElementById('jsoninput').value = json;
+    $('#jsoninput').val(json);
 }
 
 function update_cardcreator() {
-    var json = document.getElementById('jsoninput').value;
+    var json = $('#jsoninput').val();
     var card = import_card(json);
 
-    document.getElementById('nameform').value = card.name;
-    document.getElementById('castform').value = card.cast;
-    document.getElementById('cooldownform').value = card.cooldown;
-    document.getElementById('imageform').value = card.image;
-    document.getElementById('abilityform').value = card.ability;
-    document.getElementById('classform').value = card.class_;
-    document.getElementById('editionform').value = card.edition;
-    document.getElementById('levelform').value = card.level;
+    $('#nameform').val(card.name);
+    $('#castform').val(card.cast);
+    $('#cooldownform').val(card.cooldown);
+    $('#imageform').val(card.image);
+    $('#abilityform').val(card.ability);
+    $('#classform').val(card.class_);
+    $('#editionform').val(card.edition);
+    $('#levelform').val(card.level);
 }
 
 function card_from_form() {
     var card = {
-        name : document.getElementById('nameform').value,
-        cast : document.getElementById('castform').value,
-        cooldown : document.getElementById('cooldownform').value,
-        image : document.getElementById('imageform').value,
-        ability : document.getElementById('abilityform').value,
-        class_ : document.getElementById('classform').value,
-        edition : document.getElementById('editionform').value,
-        level : document.getElementById('levelform').value
+        name : $('#nameform').val(),
+        cast : $('#castform').val(),
+        cooldown : $('#cooldownform').val(),
+        image : $('#imageform').val(),
+        ability : $('#abilityform').val(),
+        class_ : $('#classform').val(),
+        edition : $('#editionform').val(),
+        level : $('#levelform').val()
     };
     return card;
 }
