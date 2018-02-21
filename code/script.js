@@ -60,6 +60,32 @@ function export_card (card) {
     return json;
 }
 
+function getCardName(){
+
+
+    card = card_from_form();
+    return card.name;
+}
+
+//function to save the json of the card
+function saveCard(){
+    
+    var cardPath = "../cards/" + getCardName() + ".json";
+    
+    var blob = new Blob( [ export_card(card_from_form()) ], {
+        type: 'application/octet-stream'
+    });
+    
+    url = URL.createObjectURL( blob );
+    var link = document.createElement( 'a' );
+    link.setAttribute( 'href', url );
+    link.setAttribute( 'download', 'example.json' );
+    
+    var event = document.createEvent( 'MouseEvents' );
+    event.initMouseEvent( 'click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+    link.dispatchEvent( event );
+}
+
 function import_card (json) {
     var card = JSON.parse(json);
     return card;
