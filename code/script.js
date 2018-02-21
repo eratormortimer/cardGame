@@ -4,13 +4,20 @@ function init() {
 }
 
 function show_card (card) {
-    document.getElementById('name').innerHTML = card.name;
-    document.getElementById('cast').innerHTML = card.cast;
-    document.getElementById('cooldown').innerHTML = card.cooldown;
-    document.getElementById('ability').innerHTML = card.ability;
-    document.getElementById('class').innerHTML = card.class_;
-    document.getElementById('edition').innerHTML = card.edition;
-    document.getElementById('image').innerHTML = card.image;
+    document.getElementById('name').innerHTML =
+        '<p>' + card.name + '</p>';
+    document.getElementById('cast').innerHTML =
+        '<p>' + card.cast + '</p>';
+    document.getElementById('cooldown').innerHTML =
+        '<p>' + card.cooldown + '</p>';
+    document.getElementById('ability').innerHTML =
+        '<p>' + card.ability + '</p>';
+    document.getElementById('class').innerHTML =
+        '<p>' + card.class_ + '</p>';
+    document.getElementById('edition').innerHTML =
+        '<p>' + card.edition + '</p>';
+    document.getElementById('image').innerHTML =
+        '<p>' + card.image + '</p>';
 
     wrapper = document.getElementById('card');
     switch (card.level) {
