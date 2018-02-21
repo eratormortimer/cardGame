@@ -50,7 +50,7 @@ function loadFrame(rarity) {
 	rarityDiv.appendChild(img);
     */
 
-	var img_src = "images/rarity-" + rarity + ".png";
+	var img_src = "../images/rarity-" + rarity + ".png";
     document.getElementById('card').style.backgroundImage =
         "url(" + img_src + ")";
 }
